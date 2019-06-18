@@ -34,7 +34,7 @@ Class File extends Package
 	 *
 	 * @return ResponseInterface
 	 */
-	public function add(Languagefile $languagefile, string $type = '', string $branch = '') : ResponseInterface
+	public function add(Languagefile $languagefile, string $type = '', string $branch = '', string $scheme = 'identifier,source_or_translation') : ResponseInterface
 	{
 		$data = [];
 
@@ -53,6 +53,11 @@ Class File extends Package
 				'contents' => $branch
 			];
 		}
+
+        $data[] = [
+            'name'     => 'scheme',
+            'contents' => $scheme
+        ];
 
 		$data = $this->processLanguageFile($data, $languagefile);
 

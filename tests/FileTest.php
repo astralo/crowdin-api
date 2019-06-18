@@ -56,12 +56,12 @@ class FileTest extends TestCase
 			$this->object->add(
 				new Languagefile(__dir__ . '/Data/test.txt', 'crowdinpath'),
 				'type',
-				'branch'
+				'branch',
+                'identifier,source_phrase'
 			),
 			$this->equalTo(
 				$this->testResponse->setBody(
-					'project/{projectID}/add-file?key={APIKey}&multipart%5B0%5D%5Bname%5D=type&multipart%5B0%5D%5Bcontents%5D=type'
-					. '&multipart%5B1%5D%5Bname%5D=branch&multipart%5B1%5D%5Bcontents%5D=branch&multipart%5B2%5D%5Bname%5D=files%5Bcrowdinpath%5D'
+					'project/{projectID}/add-file?key={APIKey}&multipart%5B0%5D%5Bname%5D=type&multipart%5B0%5D%5Bcontents%5D=type&multipart%5B1%5D%5Bname%5D=branch&multipart%5B1%5D%5Bcontents%5D=branch&multipart%5B2%5D%5Bname%5D=scheme&multipart%5B2%5D%5Bcontents%5D=identifier%2Csource_phrase&multipart%5B3%5D%5Bname%5D=files%5Bcrowdinpath%5D'
 				)
 			)
 		);
